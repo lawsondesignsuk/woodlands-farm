@@ -527,16 +527,39 @@ nav a {
     }
 }
 
-.gallery-img img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    display: block;
-    object-fit: cover;
+.gallery-img {
+    position: relative; /* Needed for positioning text overlay */
+    overflow: hidden; /* Ensures content stays within image boundaries */
 }
 
-.gallery-container img:hover {
-    filter: brightness(0.4);
-    transition: ease 1s;
+.gallery-img img {
+    width: 100%;
+    aspect-ratio: 1/1; /* Makes images square */
+    display: block;
+    object-fit: cover;
+    transition: filter 0.5s ease; /* Smooth transition for darkening effect */
+}
+
+.gallery-img:hover img {
+    filter: brightness(0.4); /* Darkens image on hover */
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease; /* Smooth fade-in */
+    pointer-events: none; /* Ensures text does not interfere with hover */
+}
+
+.gallery-img:hover .overlay-text {
+    opacity: 1; /* Shows text on hover */
 }
 
 
