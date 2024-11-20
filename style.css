@@ -562,6 +562,13 @@ nav a {
     opacity: 1; /* Shows text on hover */
 }
 
+/* Hide text overlay on small screens */
+@media (max-width: 768px) { /* Adjust max-width as needed for your mobile breakpoint */
+    .overlay-text {
+        display: none;
+    }
+}
+
 
 
 .cta-container {
