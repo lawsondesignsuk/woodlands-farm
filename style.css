@@ -600,12 +600,6 @@ nav a {
     margin-bottom: 100px;
 }
 
-@media (min-width: 1024px) {
-    .cta-container {
-        max-height: 72vh;
-    }
-}
-
 .cta-container::before {
     content: "";
     position: absolute;
