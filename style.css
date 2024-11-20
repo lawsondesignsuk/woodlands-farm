@@ -497,7 +497,6 @@ nav a {
     margin-top: 25px;
 }
 
-
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Default: 2 columns on small screens */
@@ -544,6 +543,7 @@ nav a {
     filter: brightness(0.4); /* Darkens image on hover */
 }
 
+/* Default overlay text styling (shared for all screen sizes) */
 .overlay-text {
     position: absolute;
     top: 50%;
@@ -555,21 +555,33 @@ nav a {
     text-align: center;
     opacity: 0; /* Initially hidden */
     transition: opacity 0.5s ease; /* Smooth fade-in */
-    pointer-events: none; /* Ensures text does not interfere with hover */
+    pointer-events: none; /* Ensures text doesn't interfere with hover/tap */
 }
 
-.gallery-img:hover .overlay-text {
-    opacity: 1; /* Shows text on hover */
+.gallery-img:hover img {
+    filter: brightness(0.4); /* Darkens image on hover */
 }
 
-/* Hide text overlay on small screens */
-@media (max-width: 768px) { /* Adjust max-width as needed for your mobile breakpoint */
+.gallery-img:hover .overlay-text,
+.gallery-img:active .overlay-text { 
+    opacity: 1; /* Shows text on hover (desktop) or tap (mobile) */
+}
+
+.gallery-img {
+    position: relative; /* For text overlay positioning */
+    overflow: hidden;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
     .overlay-text {
-        display: none;
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+
+    .gallery-img:active img {
+        filter: brightness(0.4); /* Ensure image darkens on tap for mobile */
     }
 }
-
-
 
 .cta-container {
     position: relative;
