@@ -230,7 +230,46 @@
     <div class="footer-bottom">
         <p>&copy; 2023 Woodlands Farm. All rights reserved.</p>
         <a href="https://lawsondesigns.net/"><p>Created by Lawson Designs</p></a>
+    </div
+
+        <div class="popup-overlay" id="popup-overlay">
+        <div class="popup">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <h2>Welcome to Woodlands Farm!</h2>
+            <p>Your trusted egg wholesaler in London and Kent. Get in touch with us today!</p>
+            <form action="https://formsubmit.co/woodlandsfarmeggs@gmail.com" method="POST" id="popup-form">
+                <input type="hidden" name="_next" value="https://kenteggs.co.uk/what-we-offer.html">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const popupOverlay = document.getElementById('popup-overlay');
+            const closeBtn = document.getElementById('close-btn');
+
+            // Show popup after 5 seconds
+            setTimeout(() => {
+                popupOverlay.style.display = 'flex';
+            }, 3000);
+
+            // Close popup
+            closeBtn.addEventListener('click', () => {
+                popupOverlay.style.display = 'none';
+            });
+
+            // Form submission handler
+            const popupForm = document.getElementById('popup-form');
+            popupForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Thank you for reaching out! We will contact you soon.');
+                popupOverlay.style.display = 'none';
+            });
+        });
+    </script>
 
     <script>
 document.querySelector('.menu-toggle').addEventListener('click', function() {
